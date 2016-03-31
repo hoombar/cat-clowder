@@ -20,7 +20,8 @@ public class UrlFactoryTest {
     @Test
     public void srcPngShouldHaveFullUrl() {
         String url = UrlFactory.get(CatApiPath.srcPng);
-        assertThat(url).isEqualTo("http://thecatapi.com/api/images/get?format=src&type=png");
+        String expected = "http://thecatapi.com/api/images/get?format=src&type=png&api_key=Nzc2MDQ";
+        assertThat(url).isEqualTo(expected);
     }
 
 }

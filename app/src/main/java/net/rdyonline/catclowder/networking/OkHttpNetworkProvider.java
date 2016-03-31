@@ -32,7 +32,7 @@ public class OkHttpNetworkProvider implements NetworkProvider {
         try {
             Response response = mClient.newCall(request).execute();
             return BitmapFactory.decodeStream(response.body().byteStream());
-        } catch (IOException e) {
+        } catch (Exception e) {
             return mFallbackImage;
         }
     }
