@@ -10,6 +10,13 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+
+        // Stops the Gradle plugin’s automatic rasterization of vectors
+        generatedDensities = []
+    }
+    // Flag to tell aapt to keep the attribute ids around
+    aaptOptions {
+        additionalParameters "--no-version-vectors"
     }
     buildTypes {
         release {
@@ -23,6 +30,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     compile 'com.android.support:appcompat-v7:23.2.1'
+
     compile 'com.squareup.retrofit2:retrofit:2.0.1'
 
     testCompile 'junit:junit:4.12'
