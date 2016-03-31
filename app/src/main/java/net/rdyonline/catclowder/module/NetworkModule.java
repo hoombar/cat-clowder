@@ -12,7 +12,7 @@ import static net.rdyonline.catclowder.module.ResourceModule.drawableRes;
 
 public class NetworkModule {
 
-    public static NetworkProvider retrofitNetworkProvider() {
+    public static NetworkProvider networkProvider() {
         Drawable drawable = drawableRes(R.drawable.cat);
         Bitmap bitmap = BitmapHelper.getBitmap(drawable);
 

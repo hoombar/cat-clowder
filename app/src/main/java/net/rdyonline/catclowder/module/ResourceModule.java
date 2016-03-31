@@ -4,7 +4,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
-import android.support.v4.content.ContextCompat;
 
 import static net.rdyonline.catclowder.module.ContextModule.applicationContext;
 
@@ -15,7 +14,12 @@ public class ResourceModule {
     }
 
     public static Drawable drawableRes(@DrawableRes int resourceId) {
-        return ContextCompat.getDrawable(applicationContext(), resourceId);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            return applicationContext().getDrawable(resourceId);
+        } else {
+            //noinspection deprecation
+            return applicationContext().getResources().getDrawable(resourceId);
+        }
     }
 
 
