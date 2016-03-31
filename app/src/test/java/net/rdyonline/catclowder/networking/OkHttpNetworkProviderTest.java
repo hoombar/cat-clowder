@@ -9,9 +9,9 @@ import org.mockito.MockitoAnnotations;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RetrofitNetworkProviderTest {
+public class OkHttpNetworkProviderTest {
 
-    private RetrofitNetworkProvider mRetrofitNetworkProvider;
+    private OkHttpNetworkProvider mOkHttpNetworkProvider;
 
     @Mock
     Bitmap mMockBitmap;
@@ -20,17 +20,17 @@ public class RetrofitNetworkProviderTest {
     public void setup() {
         MockitoAnnotations.initMocks(this);
 
-        mRetrofitNetworkProvider = new RetrofitNetworkProvider(mMockBitmap);
+        mOkHttpNetworkProvider = new OkHttpNetworkProvider(mMockBitmap);
     }
 
     @Test
     public void shouldNotReturnNullFromNewImage() {
-        assertThat(mRetrofitNetworkProvider.newCatImage()).isNotNull();
+        assertThat(mOkHttpNetworkProvider.newCatImage()).isNotNull();
     }
 
     @Test
     public void shouldShowPlaceHolderIfImageFails() {
-        assertThat(mRetrofitNetworkProvider.newCatImage()).isEqualTo(mMockBitmap);
+        assertThat(mOkHttpNetworkProvider.newCatImage()).isEqualTo(mMockBitmap);
     }
 
 }
